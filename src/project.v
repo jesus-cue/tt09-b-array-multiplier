@@ -22,11 +22,6 @@ module tt_um_b_array_multiplier(
     wire [3:0] q = ui_in[3:0]
     wire [7:0] p;
 
-    input [3:0] m,
-    input [3:0] q,
-    output [7:0] p
-    );
-    
     wire [3:0] x0_in, x1_in, x2_in, x3_in;
     wire [3:0] int1, int2, int3, int4, int5, int6, int7, int8, int9, int10;
     
@@ -72,8 +67,6 @@ module tt_um_b_array_multiplier(
     black_box bb7(1'b0, int8[3], int10[2], int9[3], int10[3]);
     
     assign p = {int9[3], int9[2], int9[1], int9[0], int7[0], int5[0], int3[0], int1[0]};
-    
-
 
   assign u0_out = p;
 
@@ -93,7 +86,7 @@ module black_box(
     output y,
     output z
     );
-    
+
 // Internal Signals
     wire int_sig1;
     wire int_sig2;
@@ -103,16 +96,18 @@ module black_box(
     wire int_sig6;
     wire int_sig7;
     wire int_sig8;
-        
+
     assign int_sig1 = a & ~b;
     assign int_sig2 = ~a & b;
     assign int_sig3 = int_sig1 + int_sig2;
     assign int_sig4 = int_sig3 & ~c;
     assign int_sig5 = ~int_sig3 & c;
-    assign y = int_sig4 + int_sig5; 
+    assign y = int_sig4 + int_sig5;
     assign int_sig6 = a & b;
     assign int_sig7 = b & c;
-    assign int_sig8 = c & a;    
+    assign int_sig8 = c & a;
     assign z = int_sig6 | int_sig7 | int_sig8;
-     
+
 endmodule
+    
+// Internal Signals
